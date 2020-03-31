@@ -1,14 +1,14 @@
 /**
- * cool arduino serial state temperature cable probe (coolASSTCP)
+ * coolATCP - cool arduino cable temperature probe (coolATCP)
  *
  * Christian
  * graetz23@gmail.com
- * created 20200331
+ * created 20191222
  * version 20200331
  *
  * MIT License
  *
- * Copyright (c) 2020 coolASSTCP Christian (graetz23@gmail.com)
+ * Copyright (c) 2019-2020 coolATCP Christian (graetz23@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,52 +28,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#ifndef __ARDUINO_COOLASSTCP_H__
-#define __ARDUINO_COOLASSTCP_H__
 
-#include <Arduino.h>
-#include <Wire.h>
-#include <SPI.h>
+#include "./coolATCP.h" // cool arduino cable tempearture probe
 
-#include "./coolASSM.h" // the COMMANDs and STATEs ..
-#include "./coolATCP.h" // cool arduino temperature cable probes
+ATCP actp(10000, 1023); // cool arduino cable temperature probe
 
-/*!
- * \brief The cool ASSM - the cool arduino serial state machine
- */
-class ASSTCP : public ASSM {
+void setup( ) {
+  actp.setup( );
+} // method
 
-public:
-
-  /*!
-   * \brief Constructor
-   */
-  ASSTCP( void );
-
-  /*!
-   * \brief Destructor; virtual to have it called
-   */
-  virtual ~ASSTCP( void );
-
-private:
-
-  /*!
-   * \brief cyclic called when coolASSM is in ERROR state - overloaded method
-   */
-  virtual uint8_t error( uint8_t command );
-
-  /*!
-   * \brief cyclic called when coolASSM is in IDLE state - overloaded method
-   */
-  virtual uint8_t idle( uint8_t command );
-
-  /*!
-   * \brief cyclic called when coolASSM is in RUNNING state - overloaded method
-   */
-  virtual uint8_t running( uint8_t command );
-
-  ATCP* _atcp; // cable temperature probe pointer
-
-}; // class
-
-#endif
+void loop( ) {
+  actp.loop( );
+  delay( 100 ); // 10 ms
+} // method
