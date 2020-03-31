@@ -32,6 +32,13 @@
 #include "./coolATCP.h" // base class header file
 
 ATCP::ATCP( void ) {
+  _cnst_resistance_probe = 10000;
+  _cnst_resolution = 1023;
+} // method
+
+ATCP::ATCP( double resistorValue, double analogResolution ) {
+  _cnst_resistance_probe = resistorValue; // TODO set this to your type of probe
+  _cnst_resolution = analogResolution; // TODO set this to your kind of analog resolution
 } // method
 
 ATCP::~ATCP( void ) {
@@ -43,10 +50,27 @@ void ATCP::setup( void ) {
 } // method
 
 void ATCP::loop( void ) {
-  _val_analog = analogRead( ATCP_PIN_PROBE ); // read analog pin
+  _val_analog = analogRead( ATCP_PIN_PROBE_0 ); // read analog pin
   _val_resistor = analog_to_Resistor( _val_analog ); // calculate resistor
   _val_kelvin = analog_to_Kelvin( _val_analog ); // calculate kelvin
   _val_celsius = kelvin_to_Celsius( _val_kelvin ); // calculate degree celsius
+} // method
+
+double ATCP::readNTCProbe( int id ) {
+  double analog = analogRead( id ); // read analog value at certain input
+  return analog;
+} // method
+
+double ATCP::readNTCProbe_resistor( int id ) {
+  return analog_to_Resistor( readNTCProbe( id ) ); // calculate resistor
+} // method
+
+double ATCP::readNTCProbe_kelvin( int id ) {
+  return analog_to_Kelvin( readNTCProbe( id ) ); // calculate kelvin
+} // method
+
+double ATCP::readNTCProbe_Celsius( int id ) {
+  return kelvin_to_Celsius( analog_to_Kelvin( readNTCProbe( id ) ) );
 } // method
 
 double ATCP::analog_to_Resistor( double val_analog ) {

@@ -36,11 +36,17 @@
 #define ATCP_DEBUG true;
 
 #define ATCP_PIN_PROBE_0 A0 // TODO let this be an array
+#define ATCP_PIN_PROBE_0_ID 0 // TODO let this be an array
 #define ATCP_PIN_PROBE_1 A1 // TODO let this be an array
+#define ATCP_PIN_PROBE_1_ID 1 // TODO let this be an array
 #define ATCP_PIN_PROBE_2 A2 // TODO let this be an array
+#define ATCP_PIN_PROBE_2_ID 2 // TODO let this be an array
 #define ATCP_PIN_PROBE_3 A3 // TODO let this be an array
+#define ATCP_PIN_PROBE_3_ID 3 // TODO let this be an array
 #define ATCP_PIN_PROBE_4 A4 // TODO let this be an array
+#define ATCP_PIN_PROBE_4_ID 4 // TODO let this be an array
 #define ATCP_PIN_PROBE_5 A0 // TODO let this be an array
+#define ATCP_PIN_PROBE_5_ID 5 // TODO let this be an array
 
 /**
  * The cool ATCP - cool arduino cable temperature probe
@@ -64,9 +70,14 @@ private:
 public:
 
   /*!
-   * \brief Constructor
+   * \brief Constructor used for 10 k Ohm and an analog resolution of 1024.
    */
   ATCP( void );
+
+  /*!
+   * \brief Constructor to set resistor value and the analog resolution.
+   */
+  ATCP( double resistorValue = 10000, double analogResolution = 1023);
 
   /*!
    * \brief Destructor
@@ -74,7 +85,7 @@ public:
   ~ATCP( void );
 
   /*!
-   * \brief Call tis to set your base conditions
+   * \brief Call this to set your base conditions
    */
   void setup( void );
 
@@ -82,6 +93,28 @@ public:
    * \brief call this to update the measurement and internal calculations
    */
   void loop( void );
+
+  /*!
+   * \brief call this to read the analog value of a NTC probe of certain ID;
+   * e.g. id = 0 => input A0 on arduino.
+   */
+   double readNTCProbe( int id );
+
+   /*!
+    * \brief call this to read the resistor value of a NTC probe of certain ID.
+    */
+   double readNTCProbe_resistor( int id );
+
+   /*!
+    * \brief call this to read the kelvin value of a NTC probe of certain ID.
+    */
+   double readNTCProbe_kelvin( int id );
+
+   /*!
+    * \brief call this to read the temperature value in degree celsius  of a
+    * NTC probe of certain ID.
+    */
+   double readNTCProbe_Celsius( int id );
 
   /*!
    * \brief calculates the resistor value in Ohm from the analog value

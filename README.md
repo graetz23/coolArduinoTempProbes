@@ -1,7 +1,7 @@
 ## cool Arduino Temperature Cable Probe
 
 ### Introduction
-cool Arduino Temperature Cable Probe (coolATCP) drives Negative Temperature Coefficient (NTC) probes on all available _analog inputs_ and makes resistor values in _Ohm_ or the temperature in _°C_ or _°F_ available.
+cool Arduino Temperature Cable Probe (coolATCP) drives Negative Temperature Coefficient (NTC) probes on all available _analog inputs_ and makes resistor values in _Ohm_ or the temperature in _K_, _°C_, or _°F_ available.
 
 ### Building
 For building the HEX file, the [arduino Makefile](https://github.com/sudar/Arduino-Makefile) is used. So clone or download / unzip this first to your system. Afterwards configure the _Makefile_ to your arduino boards and type: _make_.
