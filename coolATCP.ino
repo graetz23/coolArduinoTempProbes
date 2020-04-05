@@ -31,7 +31,7 @@
 
 #include "./coolATCP.h" // cool arduino cable tempearture probe
 
-ATCP actp(10000, 1023); // cool arduino cable temperature probe
+ATCP actp; // cool arduino cable temperature probe
 
 void setup( ) {
   actp.setup( );
