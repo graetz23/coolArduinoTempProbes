@@ -1,7 +1,7 @@
-## cool Arduino Temperature Cable Probe
+## cool Arduino Temperature Probes
 
 ### Introduction
-cool Arduino Temperature Cable Probe (coolATCP) drives Negative Temperature Coefficient (NTC) probes on all available _analog inputs_ and makes resistor values in _Ohm_ or the temperature in _K_, _°C_, or _°F_ available.
+cool Arduino Temperature Probes (coolATP) drives Negative (\& poitive) Temperature Coefficient (NTC) probes on all available _analog inputs_ and makes resistor values in _Ohm_ or the temperature in _K_, _°C_, or _°F_ available.
 
 ### Building
 For building the HEX file, the [arduino Makefile](https://github.com/sudar/Arduino-Makefile) is used. So clone or download / unzip this first to your system. Afterwards configure the _Makefile_ to your arduino boards and type: _make_.
@@ -12,10 +12,10 @@ Wire your NTC probe with a _matching_ (same resistor value as the probe) resisto
 However there are several public _posts_, _blogs_, and _vlogs_ on internet showing a schematic wiring diagram.
 
 ### Usage
-See _coolATCP.ino_ file as an example.
+See [coolATP.ino](https://github.com/graetz23/coolArduinoTempProbes/blob/master/coolATCP.ino) file as an example.
 
 ### Remarks
-I use this project for driving several NTCs in a home brewery system and using [**coolASSM**](https://github.com/graetz23/coolArduinoSerialStateMachine) to transfer them to a _raspberry pi_ driving  [**CraftBeerPi3**](https://github.com/Manuel83/craftbeerpi3).
+I use this project for driving several NTCs in a home brewery system and using [**ASSTP**](https://github.com/graetz23/coolArduinoSerialStateTempPrbes) to transfer data via serial to a _raspberry pi_. The pi is driving  [**CraftBeerPi3**](https://github.com/Manuel83/craftbeerpi3) by a written plugin, to integrate the temperature values: [craftbeerpi3ArduinoTempProbes](https://github.com/graetz23/craftbeerpi3ArduinoTempProbes).
 
 Everything was coded using:
 
@@ -26,7 +26,11 @@ Everything was coded using:
 
 ## ChangeLog
 
+**20200405**
+  - renamed project and reposiory,
+  - updated readme
+
 **20200331**
   - adding MIT License to all files.
   - adding the README.md for explanation,
-  - setting up reository on [github.com](https://github.com/graetz23/coolArduinoTemperatureCableProbe).
+  - setting up reository on [github.com](https://github.com/graetz23/coolArduinoTempProbes).
