@@ -12,10 +12,10 @@ Wire your NTC probe with a _matching_ (same resistor value as the probe) resisto
 However there are several public _posts_, _blogs_, and _vlogs_ on internet showing a schematic wiring diagram.
 
 ### Usage
-See [coolATP.ino](https://github.com/graetz23/coolArduinoTempProbes/blob/master/coolATP.ino) file as an example.
+See _loop_ method in [coolATP.cpp](https://github.com/graetz23/coolArduinoTempProbes/blob/master/coolATP.cpp) file as an example.
 
 ### Remarks
-I use this project for driving several NTCs in a home brewery system and using [**ASSTP**](https://github.com/graetz23/coolArduinoSerialStateTempProbes) to transfer data via serial to a _raspberry pi_. The pi is driving  [**CraftBeerPi3**](https://github.com/Manuel83/craftbeerpi3) by a written plugin, to integrate the temperature values: [craftbeerpi3ArduinoTempProbes](https://github.com/graetz23/craftbeerpi3ArduinoTempProbes).
+I use this project for driving several NTCs in a home brewery system and using [**ASSTP**](https://github.com/graetz23/ArduinoSerialStateTempProbes) to transfer data via serial to a _raspberry pi_. The pi is driving  [**CraftBeerPi3**](https://github.com/Manuel83/craftbeerpi3) by a written plugin, to integrate the temperature values: [craftbeerpi3ArduinoTempProbes](https://github.com/graetz23/craftbeerpi3ArduinoTempProbes).
 
 Everything was coded using:
 
