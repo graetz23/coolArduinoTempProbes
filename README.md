@@ -26,6 +26,9 @@ Everything was coded using:
 
 ## ChangeLog
 
+**20230518**
+  - updating copyright by year ..
+
 **20200405**
   - renamed project and reposiory,
   - updated readme
